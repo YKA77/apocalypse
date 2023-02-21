@@ -12,8 +12,14 @@ bg2_test = pygame.image.load('images/cavestructures.png')
 killcount = font_test.render('kills:', False, 'White')
 
 zombie_surface = pygame.image.load('images/zombie/zombie1.png')
+zombie_rect = zombie_surface.get_rect()
 zombie_x_pos = 600
 zombie_y_pos = 40
+
+player_surface = pygame.image.load('images/player/playerwalk1.png')
+player_rect = player_surface.get_rect()
+player_x_pos = 10
+player_y_pos = 540
 
 while True:
     for event in pygame.event.get():
@@ -27,6 +33,18 @@ while True:
     zombie_x_pos -= 1
     if zombie_x_pos < 480: zombie_x_pos = 600
     screen.blit(zombie_surface, (zombie_x_pos, zombie_y_pos))
+    screen.blit(player_surface, (player_x_pos, player_y_pos))
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        player_y_pos -= 1
+    if keys[pygame.K_s]:
+        player_y_pos += 1
+    if keys[pygame.K_a]:
+        player_x_pos -= 1
+    if keys[pygame.K_d]:
+        player_x_pos += 1
+        
     
     pygame.display.update()
     clock.tick(60)
