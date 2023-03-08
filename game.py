@@ -1,52 +1,42 @@
-#Apocalypse
-#NEA project 
-
 import pygame
-from pygame.locals import *
+from sys import exit
+from config import *
 
-class Player:
+pygame.init()
+screen = pygame.display.set_mode((800,600))
+pygame.display.set_caption('Apocalypse')
+clock = pygame.time.Clock()
+done = False
+clock.tick(60)
+font_test = pygame.font.Font(None, 30)
+keys = pygame.key.get_pressed()
 
-    def __init__(self, lives, position, ammo):
-        lives = Player.lives
-        position = Player.pos
-        ammo = Player.ammo
+class zombie:
+    def __init__(self, surface, rect, x_pos, y_pos):
+        self._surface = surface
+        self._rect = rect
+        self._x_pos = x_pos
+        self._y_pos = y_pos
 
-    def main():
-        player = Player()
+'''class player:
+    def __init__(self, surface, rect x_pos, y_pos)
+        self'''
 
-        while True:
-            player.update()
+bg_menu = pygame.image.load('images/menutest.png')
+bg_test = pygame.image.load('images/cave.png')
+bg2_test = pygame.image.load('images/cavestructures.png')
+killcount = font_test.render('kills:', False, 'White')
 
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode((800,600))
-    pygame.display.set_caption('Apocalypse')
+def main_menu():
+    screen.blit(bg_menu, (0, 0))
+    if keys[pygame.K_SPACE]:
+        print("hello world")
+    
+def game():
+    screen.blit(bg_test, (0, 0))
+    screen.blit(bg2_test, (250, 0))
+    screen.blit(killcount, (10, 550))
+    screen.blit(zombie._surface, (600, 40))
+       
 
-    #background
-    background = pygame.Surface(screen.get_size())
-    background = background.convert()
-    background.fill((0, 0, 0))
-
-    #text
-    font = pygame.font.Font(None, 144)
-    text = font.render("Apocalypse", 1, (145, 15, 15))
-    textpos = text.get_rect()
-    textpos.centerx = background.get_rect().centerx
-    textpos.centery = background.get_rect().centery
-    background.blit(text, textpos)
-
-    #blit
-    screen.blit(background, (0, 0))
-    pygame.display.flip()
-
-    #game loop
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return
-
-        screen.blit(background, (0, 0))
-        pygame.display.flip()
-
-
-main()
+        
