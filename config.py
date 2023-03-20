@@ -1,8 +1,19 @@
-import pygame
+window_width = 800 # width of the game window
+window_height = 600 # height of the game window
 
-pygame.init()
-screen = pygame.display.set_mode((800,600))
-pygame.display.set_caption('Apocalypse')
-clock = pygame.time.Clock()
-font_test = pygame.font.Font(None, 30)
-keys = pygame.key.get_pressed()
+fps = 60 # frames per second
+
+tilesize = 32 # each tile in the tilemap will be 32 pixels
+tilemap = [  
+    'WWWWWWWWWEEWWWWWWWWW',
+    'W..................W',
+    'W..................W',
+    'WWWW............WWWW',
+    'W..................W',
+    'W..................W',
+    'WWWW............WWWW', # illustration of the map where each character represents a block or a sprite
+    'W..................W',
+    'W..................W',
+    'W..................W',
+    'WWWWWWWWWWWWWWWWWWWW',
+    ]
