@@ -8,6 +8,8 @@ class Game: # class for the actual game
         self.clock = pygame.time.Clock() 
         self.running = True # game is currently running
 
+        self.wall_spritesheet = Spritesheet('images/player')
+
     def createTileMap(self): # create the map of the game
         pass
 
