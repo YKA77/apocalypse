@@ -1,5 +1,6 @@
 import pygame # import pygame commands and functions
 from config import * # import variables from config.py
+from sprites import *
 import sys
 
 class Game: # class for the actual game
@@ -8,22 +9,32 @@ class Game: # class for the actual game
         self.clock = pygame.time.Clock() 
         self.running = True # game is currently running
 
-        self.wall_spritesheet = Spritesheet('images/player')
+        self.wall_spritesheet = Spritesheet('images/cave.png') # 144, 112
 
     def createTileMap(self): # create the map of the game
-        pass
+        for i, row in enumerate(tilemap):
+            for j, column in enumerate(row):
+                Ground(self,j,i)
+                if column=='W': # for every B in the tilemap render a wall block
+                    Wall(self,j,i)
+                if column=='E': # for every E in the tilemap render an exit block
+                    Exit(self,j,i)
 
-    def create(self):
-        pass
+    def create(self): # handles the order in which the layers are rendered
+        self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.createTileMap()
 
     def update(self): # update movement and changes in every frame
-        pass
+        self.all_sprites.update()
 
     def events(self): # handles all inputs 
         pass
 
     def draw(self): # draws the sprites on each frame
-        pass
+        self.screen.fill(black) # colours the screen black
+        self.all_sprites.draw(self.screen) # draws all of the sprites onto the map
+        self.clock.tick(fps) # update 60 times per second
+        pygame.display.update() # actually display what is being drawn
 
     def main(self):
         pass
