@@ -1,15 +1,15 @@
 import pygame # import pygame commands and functions
 from config import * # import variables from config.py
-from sprites import *
+from sprites import * # import classes from sprites.py
 import sys
 
 class Game: # class for the actual game
     def __init__(self):
-        self.screen = pygame.display.set_mode(window_width, window_height) # screen resolution 
+        self.screen = pygame.display.set_mode((window_width, window_height)) # screen resolution 
         self.clock = pygame.time.Clock() 
         self.running = True # game is currently running
 
-        self.wall_spritesheet = Spritesheet('images/cave.png') # 144, 112
+        self.cave_spritesheet = Spritesheet('images/cave.png') # 144, 112
 
     def createTileMap(self): # create the map of the game
         for i, row in enumerate(tilemap):
@@ -28,7 +28,9 @@ class Game: # class for the actual game
         self.all_sprites.update()
 
     def events(self): # handles all inputs 
-        pass
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: # if player closes the window then the game stops running
+                self.running = False
 
     def draw(self): # draws the sprites on each frame
         self.screen.fill(black) # colours the screen black
@@ -36,8 +38,11 @@ class Game: # class for the actual game
         self.clock.tick(fps) # update 60 times per second
         pygame.display.update() # actually display what is being drawn
 
-    def main(self):
-        pass
+    def main(self): # main game loop
+        while self.running == True: 
+            self.events()
+            self.draw()
+            self.update()
 
 game = Game()
 game.create() # start running an instance of the game
