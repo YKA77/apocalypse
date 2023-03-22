@@ -1,5 +1,4 @@
 import pygame
-from main import *
 from config import *
 
 class Spritesheet(): # class for spritesheets
@@ -28,7 +27,7 @@ class Wall(pygame.sprite.Sprite): # class for the wall block
         self.width = tilesize # width is 32 pixels
         self.height = tilesize # height is 32 pixels
 
-        self.image = self.game.wall_spritesheet.get_image(144,112, self.width, self.height) # the image of the wall is cropped from the coordinates of the spritesheet
+        self.image = self.game.cave_spritesheet.get_image(144,112, self.width, self.height) # the image of the wall is cropped from the coordinates of the spritesheet
         self.rect = self.image.get_rect() # getting the rectangle from the surface
         self.x = self.rect.x 
         self.y = self.rect.y
@@ -48,7 +47,7 @@ class Ground(pygame.sprite.Sprite): # class for the ground block
         self.width = tilesize # width is 32 pixels
         self.height = tilesize # height is 32 pixels
 
-        self.image = self.game.wall_spritesheet.get_image(0,144, self.width, self.height) # the image of the ground is cropped from the coordinates of the spritesheet
+        self.image = self.game.cave_spritesheet.get_image(0,144, self.width, self.height) # the image of the ground is cropped from the coordinates of the spritesheet
         self.rect = self.image.get_rect() # getting the rectangle from the surface
         self.x = self.rect.x 
         self.y = self.rect.y
@@ -68,7 +67,7 @@ class Exit(pygame.sprite.Sprite): # class for the exit block
         self.width = tilesize # width is 32 pixels
         self.height = tilesize # height is 32 pixels
 
-        self.image = self.game.wall_spritesheet.get_image(48,8, self.width, self.height) # the image of the exit is cropped from the coordinates of the spritesheet
+        self.image = self.game.cave_spritesheet.get_image(48,8, self.width, self.height) # the image of the exit is cropped from the coordinates of the spritesheet
         self.rect = self.image.get_rect() # getting the rectangle from the surface
         self.x = self.rect.x 
         self.y = self.rect.y
