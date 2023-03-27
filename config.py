@@ -12,14 +12,14 @@ ground_layer = 1
 tilesize = 32 # each tile in the tilemap will be 32 pixels
 tilemap = [  
     'WWWWWWWWWEEWWWWWWWWW',
-    'W..................W',
-    'W..................W',
-    'WWWW............WWWW',
-    'W..................W',
-    'W..................W',
-    'WWWW............WWWW', # illustration of the map where each character represents a block or a sprite
-    'W..................W',
-    'W..................W',
-    'W..................W',
-    'WWWWWWWWWWWWWWWWWWWW',
+    'WWWWWWWW....WWWWWWWW',
+    'WWWWWWWWW......WWWWW',
+    'WWW.....W.......WWWW',
+    'WWWWWW..WWWW....WWWW',
+    'WWWWWW..WWWW....WWWW',
+    'WWWW..........WWWWWW', # illustration of the map where each character represents a block or a sprite
+    'WWWW..........WWWWWW',
+    'WWWWWWWWW...WWWWWWWW',
+    'WWWWWWWWW...WWWWWWWW',
+    'WWWWWWWWW...WWWWWWWW',
     ]
